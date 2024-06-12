@@ -7,7 +7,8 @@ function Register() {
         fullname : '',
         employeeNo : '',
         password : '',
-        repassword: ''
+        confirmPassword: '',
+        userRole: 'guest'
     })
 
     const handleChange = (e) => {
@@ -15,16 +16,26 @@ function Register() {
     };
     const handleSubmit = (e) => { 
         e.preventDefault()
-
-        if(inputData.password !== inputData.repassword) {
+        if(inputData.password !== inputData.confirmPassword) {
             Swal.fire({
                 icon: "warning",
-                title: "test login",
-                text: "good or bad"
+                title: "Failed",
+                text: "Comfirm Password Mismatch"
             })
             return;
         }
-        alert('ok')
+        
+        const message = `
+        <strong>Full Name:</strong> ${inputData.fullname}<br>
+        <strong>Username:</strong> ${inputData.employeeNo}<br>
+        <strong>Password:</strong> ${inputData.password}`;
+
+        Swal.fire({
+            icon: "success",
+            title: "User Information",
+            html: message
+        })
+
 
     }
   return (
@@ -41,6 +52,7 @@ function Register() {
             <form onSubmit={handleSubmit}>
               <div className="input-group mb-3">
                 <input
+                  required
                   type="text"
                   name="fullname"
                   onChange={handleChange}
@@ -56,6 +68,7 @@ function Register() {
               </div>
               <div className="input-group mb-3">
                 <input
+                  required
                   type="text"
                   name="employeeNo"
                   onChange={handleChange}
@@ -71,6 +84,7 @@ function Register() {
               </div>
               <div className="input-group mb-3">
                 <input
+                  required
                   type="password"
                   name="password"
                   onChange={handleChange}
@@ -86,10 +100,11 @@ function Register() {
               </div>
               <div className="input-group mb-3">
                 <input
+                  required
                   type="password"
-                  name="repassword"
+                  name="confirmPassword"
                   onChange={handleChange}
-                  value={inputData.repassword}
+                  value={inputData.confirmPassword}
                   className="form-control"
                   placeholder="Retype password"
                 />

@@ -43,7 +43,7 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
       </Routes>
-      {isLoggedIn &&<Footer/>}
+      {isLoggedIn() &&<Footer/>}
     </>
   );
 }

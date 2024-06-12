@@ -20,7 +20,7 @@ httpClient.interceptors.response.use((response) => {
     return response
 }, error => { 
     debugger
-    console.log(JSON.stringify(error, undefined, 2))
+    // console.log(JSON.stringify(error, undefined, 2))
     if (axios.isCancel(error)) {
         return Promise.reject(error)
     } else if (!error.response) {

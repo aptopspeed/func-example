@@ -34,7 +34,7 @@ function Login() {
         {/* /.login-logo */}
         <div className="card card-outline card-primary">
           <div className="card-header text-center">
-            <h1>AdminLTE</h1>
+            <h1>ExampleTraining</h1>
           </div>
           <div className="card-body">
             <p className="login-box-msg">Sign in to start your session</p>
